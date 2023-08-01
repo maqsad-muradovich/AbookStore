@@ -9,6 +9,5 @@ async def set_default_commands(dp):
             types.BotCommand("help", MENU_HELP),
             types.BotCommand("library", MENU_LIBRARY),
             types.BotCommand("order", MENU_ORDER),
-            types.BotCommand("myprofile", MENU_PROFILE)
         ]
     )

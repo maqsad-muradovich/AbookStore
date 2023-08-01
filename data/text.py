@@ -21,5 +21,3 @@ MENU_HELP = "Botdan yo'rdam sorash"
 MENU_LIBRARY = "Kutubxo'nadagi kitoblar" 
 
 MENU_ORDER = "Kitob buyurtma berish"
-
-MENU_PROFILE = "Mening profilim"
