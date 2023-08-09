@@ -1,5 +1,5 @@
 from aiogram import types
-from data.text import MENU_START, MENU_HELP, MENU_LIBRARY, MENU_ORDER, MENU_PROFILE
+from data.text import MENU_START, MENU_HELP, MENU_LIBRARY, MENU_ORDER
 
 
 async def set_default_commands(dp):
