@@ -1,6 +1,6 @@
 from aiogram import types
 from aiogram.dispatcher.filters.builtin import CommandStart
-from utils.mes_commands import choice_lan 
+from utils.InlineKeyboard import choice_lan 
 
 from data.text import CHOOSE_LANGUAGE  #text data
 

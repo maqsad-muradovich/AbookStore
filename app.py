@@ -3,7 +3,7 @@ from aiogram import executor
 from loader import dp
 import middlewares, filters, handlers
 from utils.notify_admins import on_startup_notify
-from utils.bot_commands import set_default_commands
+from utils.bot_menu import set_default_commands
 
 
 async def on_startup(dispatcher):
