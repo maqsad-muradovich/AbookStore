@@ -1,18 +1,16 @@
 
 
-ECHO = "Uzur, gapizga tushunmadim"
+ECHO = "Uzur, sizni gapizga tushunmadim"
 
-HELP = "\help - Qo'llanma"
+HELP = "Qo'llanma"
 
 GREETING = 'Assalomu alykum'
 
 WELCOME = 'AbookStore-ga xush kelibsiz'
 
-INSTRUCTION = '/help'
-
 CHOOSE_LANGUAGE = 'Tilni tanlang'
 
-LANGUAGE = 'Siz tanlagan til'
+LANGUAGE = 'Siz tilni tanladingiz.'
 
 MENU_START = 'Botni ishga tushurish'
 
@@ -20,4 +18,4 @@ MENU_HELP = "Botdan yo'rdam sorash"
 
 MENU_LIBRARY = "Kutubxo'nadagi kitoblar" 
 
-MENU_ORDER = "Kitob buyurtma berish"
+MENU_ORDER = "Kitob buyurtma qilish"
