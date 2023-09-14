@@ -2,6 +2,8 @@
 
 ECHO = "Uzur, sizni gapizga tushunmadim"
 
+LIBRARY = "Bu xizmat hozircha mavjud emas"
+
 HELP = "Qo'llanma"
 
 GREETING = 'Assalomu alykum'
@@ -19,3 +21,5 @@ MENU_HELP = "Botdan yo'rdam sorash"
 MENU_LIBRARY = "Kutubxo'nadagi kitoblar" 
 
 MENU_ORDER = "Kitob buyurtma qilish"
+
+MENU_LANGUAGE = "Tilni o'zgartirish"

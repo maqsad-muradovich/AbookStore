@@ -11,14 +11,18 @@ class Database:
     def connection(self):
         return sqlite3.connect(self.path_to_db)
     
-    def exe(self, sql: str, parametrs: tuple = None, fetchone = False, fetchall = False, commit = False):
-        if not parametrs:
-            parametrs = ()
+    def exe(self, sql: str, parameter: tuple = None, fetchone=False, fetchall=False, commit=False):
+        if not parameter:
+            parameter = ()
         connection = self.connection
         connection.set_trace_callback(logger)
         cursor = connection.cursor()
         data = None
-        cursor.execute(sql, parametrs)
+        try:
+            cursor.execute(sql, parameter)
+        except:
+            connection.close()
+            cursor.execute(sql, parameter)
 
         if commit:
             connection.commit()
@@ -52,7 +56,7 @@ class Database:
 
     def add_user(self, id: int, name: str, language: str = None):
         sql = "INSERT INTO Users(id, name, language) VALUES(?,?,?)"
-        self.exe(sql, parametrs=(id, name, language), commit=True)
+        self.exe(sql, parameter=(id, name, language), commit=True)
 
     def select_add_users(self):
         sql = "SELECT * FROM Users"
@@ -63,17 +67,15 @@ class Database:
         sql = "SELECT * FROM Users WHERE"
         sql, parametrs = self.format_argc(sql, kwargs)
 
-        return self.exe(sql, parametrs=parametrs, fetchone=True)
+        return self.exe(sql, parameter=parametrs, fetchone=True)
 
     def count_user(self):
         return self.exe("SELECT COUNT(*) FROM Users;",fetchone=True)
 #
 #
-    def update_user_language(self, language, id):
-        sql = f"""
-        UPDATE Users SET language=? WHERE id=?
-"""
-        return self.exe(sql, parametrs=(language, id), commit=True)
+    def update_user_language(self, id, language):
+        sql = f"UPDATE Users SET language=? WHERE id=?"
+        return self.exe(sql, parameter=(language, id), commit=True)
 #
 #
     def delete_users(self):
@@ -81,7 +83,11 @@ class Database:
 #
 #
     def user_language(self, id_key):
-        return self.exe(f"SELECT language FROM Users WHERE id={id_key}", fetchone=True)[0]
+        lan = self.exe(f"SELECT language FROM Users WHERE id={id_key}", fetchone=True)[0]
+        if lan == None:
+            return 'uz'
+        else:
+            return lan
 
     
 def logger(statement):

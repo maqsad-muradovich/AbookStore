@@ -6,7 +6,7 @@ from aiogram.dispatcher.filters.builtin import CommandStart
 from utils.InlineKeyboard import choice_lan 
 from loader import db, bot, dp
 
-from data.text import CHOOSE_LANGUAGE  #text data
+from data.text import CHOOSE_LANGUAGE, WELCOME #text data
 
 from data.config import ADMINS
 
@@ -19,6 +19,7 @@ async def bot_start(message: types.Message):
         db.add_user(id=id_user, name=name_user)
     except:
         pass
+    await message.answer(text=WELCOME)
     await message.answer(text=f"{CHOOSE_LANGUAGE}", reply_markup=choice_lan)
     count = db.count_user()[0]
     msg = f"{message.from_user.full_name}, bazaga qoshildi. \nBazada {count} ta foudalanuvchi bor."
